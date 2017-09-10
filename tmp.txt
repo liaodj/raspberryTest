@@ -20,22 +20,4 @@ https://www.raspberrypi.org/learning/physical-computing-with-python/worksheet/
 export USER='pi'
 ### End customization required
  
-eval cd ~$USER
  
-case "$1" in
-  start)
-    # 启动命令行。此处自定义分辨率、控制台号码或其它参数。
-    su $USER -c '/usr/bin/vncserver -depth 16 -geometry 1024x768 :1'
-    echo "Starting VNC server for $USER "
-    ;;
-  stop)
-    # 终止命令行。此处控制台号码与启动一致。
-    su $USER -c '/usr/bin/vncserver -kill :1'
-    echo "vncserver stopped"
-    ;;
-  *)
-    echo "Usage: /etc/init.d/vncserver {start|stop}"
-    exit 1
-    ;;
-esac
-exit 0
